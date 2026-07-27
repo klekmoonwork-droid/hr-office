@@ -472,7 +472,8 @@ let frame = 0;
 function drawRoom() {
   ctx.imageSmoothingEnabled = false;
   drawFloor();
-  drawRug(158, 138, 132, 38);
+  // พรมวางมุมขวาล่าง — เลี่ยงแถบกลางห้องที่ป้ายชื่อแถวล่างลอยอยู่
+  drawRug(296, 238, 108, 40);
   drawWall();
 
   drawCabinet(6, 54);
@@ -484,6 +485,8 @@ function drawRoom() {
   drawSofa(30, 248);
   drawTable(88, 256);
   drawMeetingTable(180, 248);
+  drawPlant(144, 146);     // ต้นไม้กลางห้อง วางเยื้องจากป้ายชื่อ
+  drawPlant(274, 146);
 
   bots.forEach((bot, i) => {
     const seat = SEATS[bot.seat ?? i];
@@ -518,7 +521,7 @@ function buildSeats() {
     btn.className = 'seat';
     btn.dataset.state = bot.tone;
     btn.style.left = `${(seat.x / ROOM_W) * 100}%`;
-    btn.style.top = `${((seat.y - 52) / ROOM_H) * 100}%`;
+    btn.style.top = `${((seat.y - 45) / ROOM_H) * 100}%`;
     btn.title = `${bot.name} — ${tone.label}`;
     btn.innerHTML = `
       <span class="tag"><span class="dot" style="background:${tone.color}"></span>${bot.name}</span>
