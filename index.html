@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>ห้องฝ่ายบุคคล — สถานะบอท</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo" aria-hidden="true"></span>
+    <h1 id="room-title">ห้องฝ่ายบุคคล</h1>
+  </div>
+  <div class="topbar-right">
+    <div class="chips" id="summary-chips"></div>
+    <span class="stamp" id="stamp">กำลังโหลด…</span>
+  </div>
+</header>
+
+<main class="stage" id="stage">
+  <div class="room-wrap" id="room-wrap">
+    <canvas id="room" width="448" height="288" aria-hidden="true"></canvas>
+    <div class="overlay" id="overlay">
+      <div class="wall-sign" id="wall-sign">ฝ่ายบุคคล</div>
+    </div>
+  </div>
+  <p class="hint">กดที่ตัวละครเพื่อดูว่าเขาทำงานล่าสุดเมื่อไหร่ และงานไหนที่พัง</p>
+</main>
+
+<aside class="panel" id="panel" hidden aria-live="polite">
+  <button class="panel-close" id="panel-close" aria-label="ปิด">×</button>
+  <div class="panel-body" id="panel-body"></div>
+</aside>
+<div class="scrim" id="scrim" hidden></div>
+
+<noscript><p style="padding:24px">หน้านี้ต้องเปิด JavaScript</p></noscript>
+<script src="assets/office.js"></script>
+</body>
+</html>

@@ -1,0 +1,905 @@
+{
+  "generatedAt": "2026-07-27T05:44:22.941Z",
+  "owner": "klekmoonwork-droid",
+  "roomTitle": "ห้องฝ่ายบุคคล",
+  "bots": [
+    {
+      "id": "poy",
+      "name": "ปอย",
+      "role": "ดูแลพนักงานทดลองงาน",
+      "repo": "probation-report",
+      "seat": 0,
+      "look": {
+        "skin": "#f2c9a0",
+        "hair": "#2f1c12",
+        "hairStyle": "long",
+        "shirt": "#7c4dff",
+        "accent": "#ffffff"
+      },
+      "repoUrl": "https://github.com/klekmoonwork-droid/probation-report",
+      "workflows": [
+        {
+          "id": 307950284,
+          "name": "รายงานพนักงานทดลองงานครบกำหนด (LINE)",
+          "path": ".github/workflows/monthly.yml",
+          "state": "active",
+          "url": "https://github.com/klekmoonwork-droid/probation-report/blob/main/.github/workflows/monthly.yml",
+          "crons": [
+            "0 1 1 * *"
+          ]
+        }
+      ],
+      "runs": [
+        {
+          "id": 28785887210,
+          "workflowId": 307950284,
+          "workflow": "รายงานพนักงานทดลองงานครบกำหนด (LINE)",
+          "title": "รายงานพนักงานทดลองงานครบกำหนด (LINE)",
+          "status": "completed",
+          "conclusion": "success",
+          "event": "workflow_dispatch",
+          "startedAt": "2026-07-06T10:44:50Z",
+          "finishedAt": "2026-07-06T10:45:32Z",
+          "durationSec": 42,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/probation-report/actions/runs/28785887210",
+          "failed": []
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "pin",
+      "name": "ปิ่น",
+      "role": "แจ้งเตือนครบกำหนดทดลองงาน",
+      "repo": "probation-notifier",
+      "seat": 1,
+      "look": {
+        "skin": "#e8b487",
+        "hair": "#4a2c17",
+        "hairStyle": "bun",
+        "shirt": "#26c6da",
+        "accent": "#ffffff"
+      },
+      "repoUrl": "https://github.com/klekmoonwork-droid/probation-notifier",
+      "workflows": [
+        {
+          "id": 321115876,
+          "name": "probation-notifier",
+          "path": ".github/workflows/probation.yml",
+          "state": "active",
+          "url": "https://github.com/klekmoonwork-droid/probation-notifier/blob/master/.github/workflows/probation.yml",
+          "crons": [
+            "0 1 * * 1-5"
+          ]
+        }
+      ],
+      "runs": [],
+      "error": null
+    },
+    {
+      "id": "nan",
+      "name": "แนน",
+      "role": "เวลาเข้างาน / พนักงานลาออกตกหล่น",
+      "repo": "attendance-checker",
+      "seat": 2,
+      "look": {
+        "skin": "#f7d3ae",
+        "hair": "#1b1b1b",
+        "hairStyle": "bob",
+        "shirt": "#ff7043",
+        "accent": "#ffffff"
+      },
+      "repoUrl": "https://github.com/klekmoonwork-droid/attendance-checker",
+      "workflows": [
+        {
+          "id": 305161253,
+          "name": "รายงานมาสายรายเดือน (LINE)",
+          "path": ".github/workflows/monthly.yml",
+          "state": "active",
+          "url": "https://github.com/klekmoonwork-droid/attendance-checker/blob/main/.github/workflows/monthly.yml",
+          "crons": [
+            "0 1 1 * *"
+          ]
+        },
+        {
+          "id": 310382958,
+          "name": "แจ้งเตือนพนักงานลาออกตกหล่น (LINE)",
+          "path": ".github/workflows/probation-resigned.yml",
+          "state": "active",
+          "url": "https://github.com/klekmoonwork-droid/attendance-checker/blob/main/.github/workflows/probation-resigned.yml",
+          "crons": [
+            "0 9 5 * *"
+          ]
+        }
+      ],
+      "runs": [
+        {
+          "id": 29068077778,
+          "workflowId": 310382958,
+          "workflow": "แจ้งเตือนพนักงานลาออกตกหล่น (LINE)",
+          "title": "แจ้งเตือนพนักงานลาออกตกหล่น (LINE)",
+          "status": "completed",
+          "conclusion": "success",
+          "event": "workflow_dispatch",
+          "startedAt": "2026-07-10T04:01:09Z",
+          "finishedAt": "2026-07-10T04:01:47Z",
+          "durationSec": 38,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/attendance-checker/actions/runs/29068077778",
+          "failed": []
+        },
+        {
+          "id": 29066859878,
+          "workflowId": 310382958,
+          "workflow": "แจ้งเตือนพนักงานลาออกตกหล่น (LINE)",
+          "title": "แจ้งเตือนพนักงานลาออกตกหล่น (LINE)",
+          "status": "completed",
+          "conclusion": "success",
+          "event": "workflow_dispatch",
+          "startedAt": "2026-07-10T03:26:33Z",
+          "finishedAt": "2026-07-10T03:27:19Z",
+          "durationSec": 46,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/attendance-checker/actions/runs/29066859878",
+          "failed": []
+        },
+        {
+          "id": 29065996989,
+          "workflowId": 310382958,
+          "workflow": "แจ้งเตือนทดลองงานลาออกตกหล่น (LINE)",
+          "title": "แจ้งเตือนพนักงานลาออกตกหล่น (LINE)",
+          "status": "completed",
+          "conclusion": "success",
+          "event": "workflow_dispatch",
+          "startedAt": "2026-07-10T03:03:28Z",
+          "finishedAt": "2026-07-10T03:04:10Z",
+          "durationSec": 42,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/attendance-checker/actions/runs/29065996989",
+          "failed": []
+        },
+        {
+          "id": 29065291870,
+          "workflowId": 310382958,
+          "workflow": "แจ้งเตือนทดลองงานลาออกตกหล่น (LINE)",
+          "title": "แจ้งเตือนพนักงานลาออกตกหล่น (LINE)",
+          "status": "completed",
+          "conclusion": "success",
+          "event": "workflow_dispatch",
+          "startedAt": "2026-07-10T02:43:59Z",
+          "finishedAt": "2026-07-10T02:44:40Z",
+          "durationSec": 41,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/attendance-checker/actions/runs/29065291870",
+          "failed": []
+        },
+        {
+          "id": 28499472024,
+          "workflowId": 305161253,
+          "workflow": "รายงานมาสายรายเดือน (LINE)",
+          "title": "รายงานมาสายรายเดือน (LINE)",
+          "status": "completed",
+          "conclusion": "success",
+          "event": "workflow_dispatch",
+          "startedAt": "2026-07-01T06:56:22Z",
+          "finishedAt": "2026-07-01T07:07:04Z",
+          "durationSec": 642,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/attendance-checker/actions/runs/28499472024",
+          "failed": []
+        },
+        {
+          "id": 26803473928,
+          "workflowId": 287440410,
+          "workflow": "Monthly Attendance Late Checker",
+          "title": "Monthly Attendance Late Checker",
+          "status": "completed",
+          "conclusion": "success",
+          "event": "workflow_dispatch",
+          "startedAt": "2026-06-02T06:49:17Z",
+          "finishedAt": "2026-06-02T06:59:02Z",
+          "durationSec": 585,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/attendance-checker/actions/runs/26803473928",
+          "failed": []
+        },
+        {
+          "id": 26801165210,
+          "workflowId": 287440410,
+          "workflow": "Monthly Attendance Late Checker",
+          "title": "Monthly Attendance Late Checker",
+          "status": "completed",
+          "conclusion": "success",
+          "event": "workflow_dispatch",
+          "startedAt": "2026-06-02T05:50:11Z",
+          "finishedAt": "2026-06-02T06:00:11Z",
+          "durationSec": 600,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/attendance-checker/actions/runs/26801165210",
+          "failed": []
+        },
+        {
+          "id": 26798000429,
+          "workflowId": 287440410,
+          "workflow": "Monthly Attendance Late Checker",
+          "title": "Monthly Attendance Late Checker",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "workflow_dispatch",
+          "startedAt": "2026-06-02T04:15:08Z",
+          "finishedAt": "2026-06-02T04:25:06Z",
+          "durationSec": 598,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/attendance-checker/actions/runs/26798000429",
+          "failed": [
+            {
+              "job": "check-attendance",
+              "step": "Run attendance checker",
+              "conclusion": "failure"
+            }
+          ]
+        },
+        {
+          "id": 26797892452,
+          "workflowId": 287440410,
+          "workflow": "Monthly Attendance Late Checker",
+          "title": "Monthly Attendance Late Checker",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "workflow_dispatch",
+          "startedAt": "2026-06-02T04:11:34Z",
+          "finishedAt": "2026-06-02T04:11:46Z",
+          "durationSec": 12,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/attendance-checker/actions/runs/26797892452",
+          "failed": [
+            {
+              "job": "check-attendance",
+              "step": "Run attendance checker",
+              "conclusion": "failure"
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "tar",
+      "name": "ต้าร์",
+      "role": "สัญญาจ้างครบกำหนด",
+      "repo": "contract-expiry-report",
+      "seat": 3,
+      "look": {
+        "skin": "#e0a877",
+        "hair": "#241610",
+        "hairStyle": "short",
+        "shirt": "#42a5f5",
+        "accent": "#ffffff"
+      },
+      "repoUrl": "https://github.com/klekmoonwork-droid/contract-expiry-report",
+      "workflows": [
+        {
+          "id": 308450509,
+          "name": "แจ้งเตือนสัญญาจ้างครบกำหนด (LINE)",
+          "path": ".github/workflows/monthly.yml",
+          "state": "disabled_manually",
+          "url": "https://github.com/klekmoonwork-droid/contract-expiry-report/blob/main/.github/workflows/monthly.yml",
+          "crons": [
+            "0 1 28-31 * *"
+          ]
+        }
+      ],
+      "runs": [
+        {
+          "id": 28842416268,
+          "workflowId": 308450509,
+          "workflow": "แจ้งเตือนสัญญาจ้างครบกำหนด (LINE)",
+          "title": "แจ้งเตือนสัญญาจ้างครบกำหนด (LINE)",
+          "status": "completed",
+          "conclusion": "success",
+          "event": "workflow_dispatch",
+          "startedAt": "2026-07-07T04:51:31Z",
+          "finishedAt": "2026-07-07T05:05:08Z",
+          "durationSec": 817,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/contract-expiry-report/actions/runs/28842416268",
+          "failed": []
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "toey",
+      "name": "ใบเตย",
+      "role": "รายงานการลารายวัน",
+      "repo": "daily-leave-report",
+      "seat": 4,
+      "look": {
+        "skin": "#f2c9a0",
+        "hair": "#3d2214",
+        "hairStyle": "ponytail",
+        "shirt": "#66bb6a",
+        "accent": "#ffffff"
+      },
+      "repoUrl": "https://github.com/klekmoonwork-droid/daily-leave-report",
+      "workflows": [
+        {
+          "id": 307790619,
+          "name": "รายงานการลารายวัน (LINE)",
+          "path": ".github/workflows/daily.yml",
+          "state": "active",
+          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/blob/main/.github/workflows/daily.yml",
+          "crons": [
+            "5 2 * * 1-5"
+          ]
+        }
+      ],
+      "runs": [
+        {
+          "id": 30069512161,
+          "workflowId": 307790619,
+          "workflow": "รายงานการลารายวัน (LINE)",
+          "title": "รายงานการลารายวัน (LINE)",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-24T05:28:15Z",
+          "finishedAt": "2026-07-24T05:30:05Z",
+          "durationSec": 110,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/30069512161",
+          "failed": [
+            {
+              "job": "report",
+              "step": "Run daily leave report",
+              "conclusion": "failure"
+            }
+          ]
+        },
+        {
+          "id": 29982430993,
+          "workflowId": 307790619,
+          "workflow": "รายงานการลารายวัน (LINE)",
+          "title": "รายงานการลารายวัน (LINE)",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-23T05:32:32Z",
+          "finishedAt": "2026-07-23T05:33:57Z",
+          "durationSec": 85,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29982430993",
+          "failed": [
+            {
+              "job": "report",
+              "step": "Run daily leave report",
+              "conclusion": "failure"
+            }
+          ]
+        },
+        {
+          "id": 29893823948,
+          "workflowId": 307790619,
+          "workflow": "รายงานการลารายวัน (LINE)",
+          "title": "รายงานการลารายวัน (LINE)",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-22T05:27:23Z",
+          "finishedAt": "2026-07-22T05:28:59Z",
+          "durationSec": 96,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29893823948",
+          "failed": [
+            {
+              "job": "report",
+              "step": "Run daily leave report",
+              "conclusion": "failure"
+            }
+          ]
+        },
+        {
+          "id": 29804087991,
+          "workflowId": 307790619,
+          "workflow": "รายงานการลารายวัน (LINE)",
+          "title": "รายงานการลารายวัน (LINE)",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-21T05:28:23Z",
+          "finishedAt": "2026-07-21T05:29:49Z",
+          "durationSec": 86,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29804087991",
+          "failed": [
+            {
+              "job": "report",
+              "step": "Run daily leave report",
+              "conclusion": "failure"
+            }
+          ]
+        },
+        {
+          "id": 29719958304,
+          "workflowId": 307790619,
+          "workflow": "รายงานการลารายวัน (LINE)",
+          "title": "รายงานการลารายวัน (LINE)",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-20T05:47:29Z",
+          "finishedAt": "2026-07-20T05:49:02Z",
+          "durationSec": 93,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29719958304",
+          "failed": [
+            {
+              "job": "report",
+              "step": "Run daily leave report",
+              "conclusion": "failure"
+            }
+          ]
+        },
+        {
+          "id": 29557080140,
+          "workflowId": 307790619,
+          "workflow": "รายงานการลารายวัน (LINE)",
+          "title": "รายงานการลารายวัน (LINE)",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-17T05:20:49Z",
+          "finishedAt": "2026-07-17T05:22:25Z",
+          "durationSec": 96,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29557080140",
+          "failed": [
+            {
+              "job": "report",
+              "step": "Run daily leave report",
+              "conclusion": "failure"
+            }
+          ]
+        },
+        {
+          "id": 29473512314,
+          "workflowId": 307790619,
+          "workflow": "รายงานการลารายวัน (LINE)",
+          "title": "รายงานการลารายวัน (LINE)",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-16T05:17:38Z",
+          "finishedAt": "2026-07-16T05:19:00Z",
+          "durationSec": 82,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29473512314",
+          "failed": []
+        },
+        {
+          "id": 29390685699,
+          "workflowId": 307790619,
+          "workflow": "รายงานการลารายวัน (LINE)",
+          "title": "รายงานการลารายวัน (LINE)",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-15T05:08:25Z",
+          "finishedAt": "2026-07-15T05:09:50Z",
+          "durationSec": 85,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29390685699",
+          "failed": []
+        },
+        {
+          "id": 29307725195,
+          "workflowId": 307790619,
+          "workflow": "รายงานการลารายวัน (LINE)",
+          "title": "รายงานการลารายวัน (LINE)",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-14T05:08:05Z",
+          "finishedAt": "2026-07-14T05:09:32Z",
+          "durationSec": 87,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29307725195",
+          "failed": []
+        },
+        {
+          "id": 29227160774,
+          "workflowId": 307790619,
+          "workflow": "รายงานการลารายวัน (LINE)",
+          "title": "รายงานการลารายวัน (LINE)",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-13T05:46:55Z",
+          "finishedAt": "2026-07-13T05:48:23Z",
+          "durationSec": 88,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29227160774",
+          "failed": []
+        },
+        {
+          "id": 29073253551,
+          "workflowId": 307790619,
+          "workflow": "รายงานการลารายวัน (LINE)",
+          "title": "รายงานการลารายวัน (LINE)",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-10T06:13:03Z",
+          "finishedAt": "2026-07-10T06:14:25Z",
+          "durationSec": 82,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29073253551",
+          "failed": []
+        },
+        {
+          "id": 28998122061,
+          "workflowId": 307790619,
+          "workflow": "รายงานการลารายวัน (LINE)",
+          "title": "รายงานการลารายวัน (LINE)",
+          "status": "completed",
+          "conclusion": "success",
+          "event": "schedule",
+          "startedAt": "2026-07-09T06:13:28Z",
+          "finishedAt": "2026-07-09T06:14:52Z",
+          "durationSec": 84,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/28998122061",
+          "failed": []
+        },
+        {
+          "id": 28919859011,
+          "workflowId": 307790619,
+          "workflow": "รายงานการลารายวัน (LINE)",
+          "title": "รายงานการลารายวัน (LINE)",
+          "status": "completed",
+          "conclusion": "success",
+          "event": "schedule",
+          "startedAt": "2026-07-08T05:29:19Z",
+          "finishedAt": "2026-07-08T05:30:47Z",
+          "durationSec": 88,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/28919859011",
+          "failed": []
+        },
+        {
+          "id": 28845810759,
+          "workflowId": 307790619,
+          "workflow": "รายงานการลารายวัน (LINE)",
+          "title": "รายงานการลารายวัน (LINE)",
+          "status": "completed",
+          "conclusion": "success",
+          "event": "schedule",
+          "startedAt": "2026-07-07T06:16:53Z",
+          "finishedAt": "2026-07-07T06:18:37Z",
+          "durationSec": 104,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/28845810759",
+          "failed": []
+        },
+        {
+          "id": 28771602474,
+          "workflowId": 307790619,
+          "workflow": "รายงานการลารายวัน (LINE)",
+          "title": "รายงานการลารายวัน (LINE)",
+          "status": "completed",
+          "conclusion": "success",
+          "event": "workflow_dispatch",
+          "startedAt": "2026-07-06T06:11:40Z",
+          "finishedAt": "2026-07-06T06:13:13Z",
+          "durationSec": 93,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/28771602474",
+          "failed": []
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "oat",
+      "name": "โอ๊ต",
+      "role": "ตรวจสอบภายใน (Audit)",
+      "repo": "chtm-audit-line-bot",
+      "seat": 5,
+      "look": {
+        "skin": "#d99b6c",
+        "hair": "#161616",
+        "hairStyle": "short",
+        "shirt": "#ab47bc",
+        "accent": "#ffffff"
+      },
+      "repoUrl": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot",
+      "workflows": [
+        {
+          "id": 310523359,
+          "name": "Audit Morning Brief",
+          "path": ".github/workflows/brief.yml",
+          "state": "active",
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/blob/master/.github/workflows/brief.yml",
+          "crons": [
+            "0 1 * * 1-5"
+          ]
+        },
+        {
+          "id": 310523360,
+          "name": "Audit Reconcile",
+          "path": ".github/workflows/reconcile.yml",
+          "state": "active",
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/blob/master/.github/workflows/reconcile.yml",
+          "crons": [
+            "0 9 * * 1-5"
+          ]
+        }
+      ],
+      "runs": [
+        {
+          "id": 30237539035,
+          "workflowId": 310523359,
+          "workflow": "Audit Morning Brief",
+          "title": "Audit Morning Brief",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-27T04:35:41Z",
+          "finishedAt": "2026-07-27T04:35:57Z",
+          "durationSec": 16,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/actions/runs/30237539035",
+          "failed": [
+            {
+              "job": "run",
+              "step": "Run node src/brief.js",
+              "conclusion": "failure"
+            }
+          ]
+        },
+        {
+          "id": 30088405973,
+          "workflowId": 310523360,
+          "workflow": "Audit Reconcile",
+          "title": "Audit Reconcile",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-24T11:05:50Z",
+          "finishedAt": "2026-07-24T11:06:06Z",
+          "durationSec": 16,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/actions/runs/30088405973",
+          "failed": [
+            {
+              "job": "run",
+              "step": "Run node src/reconcile.js",
+              "conclusion": "failure"
+            }
+          ]
+        },
+        {
+          "id": 30066210413,
+          "workflowId": 310523359,
+          "workflow": "Audit Morning Brief",
+          "title": "Audit Morning Brief",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-24T04:12:56Z",
+          "finishedAt": "2026-07-24T04:13:14Z",
+          "durationSec": 18,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/actions/runs/30066210413",
+          "failed": [
+            {
+              "job": "run",
+              "step": "Run node src/brief.js",
+              "conclusion": "failure"
+            }
+          ]
+        },
+        {
+          "id": 30002357659,
+          "workflowId": 310523360,
+          "workflow": "Audit Reconcile",
+          "title": "Audit Reconcile",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-23T11:14:10Z",
+          "finishedAt": "2026-07-23T11:14:26Z",
+          "durationSec": 16,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/actions/runs/30002357659",
+          "failed": [
+            {
+              "job": "run",
+              "step": "Run node src/reconcile.js",
+              "conclusion": "failure"
+            }
+          ]
+        },
+        {
+          "id": 29979045950,
+          "workflowId": 310523359,
+          "workflow": "Audit Morning Brief",
+          "title": "Audit Morning Brief",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-23T04:14:20Z",
+          "finishedAt": "2026-07-23T04:14:32Z",
+          "durationSec": 12,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/actions/runs/29979045950",
+          "failed": [
+            {
+              "job": "run",
+              "step": "Run node src/brief.js",
+              "conclusion": "failure"
+            }
+          ]
+        },
+        {
+          "id": 29914836658,
+          "workflowId": 310523360,
+          "workflow": "Audit Reconcile",
+          "title": "Audit Reconcile",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-22T11:12:40Z",
+          "finishedAt": "2026-07-22T11:12:56Z",
+          "durationSec": 16,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/actions/runs/29914836658",
+          "failed": [
+            {
+              "job": "run",
+              "step": "Run node src/reconcile.js",
+              "conclusion": "failure"
+            }
+          ]
+        },
+        {
+          "id": 29890607533,
+          "workflowId": 310523359,
+          "workflow": "Audit Morning Brief",
+          "title": "Audit Morning Brief",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-22T04:15:50Z",
+          "finishedAt": "2026-07-22T04:16:04Z",
+          "durationSec": 14,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/actions/runs/29890607533",
+          "failed": []
+        },
+        {
+          "id": 29825180356,
+          "workflowId": 310523360,
+          "workflow": "Audit Reconcile",
+          "title": "Audit Reconcile",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-21T11:12:15Z",
+          "finishedAt": "2026-07-21T11:12:31Z",
+          "durationSec": 16,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/actions/runs/29825180356",
+          "failed": []
+        },
+        {
+          "id": 29800720463,
+          "workflowId": 310523359,
+          "workflow": "Audit Morning Brief",
+          "title": "Audit Morning Brief",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-21T04:14:47Z",
+          "finishedAt": "2026-07-21T04:15:04Z",
+          "durationSec": 17,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/actions/runs/29800720463",
+          "failed": []
+        },
+        {
+          "id": 29739932839,
+          "workflowId": 310523360,
+          "workflow": "Audit Reconcile",
+          "title": "Audit Reconcile",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-20T11:49:59Z",
+          "finishedAt": "2026-07-20T11:50:16Z",
+          "durationSec": 17,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/actions/runs/29739932839",
+          "failed": []
+        },
+        {
+          "id": 29717219170,
+          "workflowId": 310523359,
+          "workflow": "Audit Morning Brief",
+          "title": "Audit Morning Brief",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-20T04:34:29Z",
+          "finishedAt": "2026-07-20T04:34:42Z",
+          "durationSec": 13,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/actions/runs/29717219170",
+          "failed": []
+        },
+        {
+          "id": 29574876985,
+          "workflowId": 310523360,
+          "workflow": "Audit Reconcile",
+          "title": "Audit Reconcile",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-17T10:51:37Z",
+          "finishedAt": "2026-07-17T10:51:51Z",
+          "durationSec": 14,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/actions/runs/29574876985",
+          "failed": []
+        },
+        {
+          "id": 29553693179,
+          "workflowId": 310523359,
+          "workflow": "Audit Morning Brief",
+          "title": "Audit Morning Brief",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-17T03:58:42Z",
+          "finishedAt": "2026-07-17T03:58:58Z",
+          "durationSec": 16,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/actions/runs/29553693179",
+          "failed": []
+        },
+        {
+          "id": 29493080661,
+          "workflowId": 310523360,
+          "workflow": "Audit Reconcile",
+          "title": "Audit Reconcile",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-16T11:04:15Z",
+          "finishedAt": "2026-07-16T11:04:28Z",
+          "durationSec": 13,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/actions/runs/29493080661",
+          "failed": []
+        },
+        {
+          "id": 29470605994,
+          "workflowId": 310523359,
+          "workflow": "Audit Morning Brief",
+          "title": "Audit Morning Brief",
+          "status": "completed",
+          "conclusion": "failure",
+          "event": "schedule",
+          "startedAt": "2026-07-16T04:07:54Z",
+          "finishedAt": "2026-07-16T04:08:11Z",
+          "durationSec": 17,
+          "attempt": 1,
+          "url": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot/actions/runs/29470605994",
+          "failed": []
+        }
+      ],
+      "error": null
+    }
+  ]
+}
