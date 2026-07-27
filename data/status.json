@@ -1,20 +1,19 @@
 {
-  "generatedAt": "2026-07-27T05:44:22.941Z",
+  "generatedAt": "2026-07-27T10:04:44.499Z",
   "owner": "klekmoonwork-droid",
   "roomTitle": "ห้องฝ่ายบุคคล",
   "bots": [
     {
-      "id": "poy",
-      "name": "ปอย",
-      "role": "ดูแลพนักงานทดลองงาน",
+      "id": "probation-due",
+      "name": "ทดลองงานครบกำหนด",
+      "role": "รายงานพนักงานที่ครบกำหนดทดลองงาน ส่งเข้า LINE",
       "repo": "probation-report",
       "seat": 0,
       "look": {
         "skin": "#f2c9a0",
         "hair": "#2f1c12",
         "hairStyle": "long",
-        "shirt": "#7c4dff",
-        "accent": "#ffffff"
+        "shirt": "#7c4dff"
       },
       "repoUrl": "https://github.com/klekmoonwork-droid/probation-report",
       "workflows": [
@@ -49,17 +48,16 @@
       "error": null
     },
     {
-      "id": "pin",
-      "name": "ปิ่น",
-      "role": "แจ้งเตือนครบกำหนดทดลองงาน",
+      "id": "probation-alert",
+      "name": "แจ้งเตือนทดลองงาน",
+      "role": "แจ้งเตือนพนักงานที่ใกล้ครบกำหนดทดลองงาน",
       "repo": "probation-notifier",
       "seat": 1,
       "look": {
         "skin": "#e8b487",
         "hair": "#4a2c17",
         "hairStyle": "bun",
-        "shirt": "#26c6da",
-        "accent": "#ffffff"
+        "shirt": "#26c6da"
       },
       "repoUrl": "https://github.com/klekmoonwork-droid/probation-notifier",
       "workflows": [
@@ -78,17 +76,16 @@
       "error": null
     },
     {
-      "id": "nan",
-      "name": "แนน",
-      "role": "เวลาเข้างาน / พนักงานลาออกตกหล่น",
+      "id": "attendance",
+      "name": "มาสาย·ลาออกตกหล่น",
+      "role": "รายงานมาสายรายเดือน และแจ้งเตือนพนักงานลาออกที่ตกหล่น",
       "repo": "attendance-checker",
       "seat": 2,
       "look": {
         "skin": "#f7d3ae",
         "hair": "#1b1b1b",
         "hairStyle": "bob",
-        "shirt": "#ff7043",
-        "accent": "#ffffff"
+        "shirt": "#ff7043"
       },
       "repoUrl": "https://github.com/klekmoonwork-droid/attendance-checker",
       "workflows": [
@@ -265,17 +262,16 @@
       "error": null
     },
     {
-      "id": "tar",
-      "name": "ต้าร์",
-      "role": "สัญญาจ้างครบกำหนด",
+      "id": "contract",
+      "name": "สัญญาจ้างครบกำหนด",
+      "role": "แจ้งเตือนสัญญาจ้างที่ครบกำหนด",
       "repo": "contract-expiry-report",
       "seat": 3,
       "look": {
         "skin": "#e0a877",
         "hair": "#241610",
         "hairStyle": "short",
-        "shirt": "#42a5f5",
-        "accent": "#ffffff"
+        "shirt": "#42a5f5"
       },
       "repoUrl": "https://github.com/klekmoonwork-droid/contract-expiry-report",
       "workflows": [
@@ -310,308 +306,16 @@
       "error": null
     },
     {
-      "id": "toey",
-      "name": "ใบเตย",
-      "role": "รายงานการลารายวัน",
-      "repo": "daily-leave-report",
-      "seat": 4,
-      "look": {
-        "skin": "#f2c9a0",
-        "hair": "#3d2214",
-        "hairStyle": "ponytail",
-        "shirt": "#66bb6a",
-        "accent": "#ffffff"
-      },
-      "repoUrl": "https://github.com/klekmoonwork-droid/daily-leave-report",
-      "workflows": [
-        {
-          "id": 307790619,
-          "name": "รายงานการลารายวัน (LINE)",
-          "path": ".github/workflows/daily.yml",
-          "state": "active",
-          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/blob/main/.github/workflows/daily.yml",
-          "crons": [
-            "5 2 * * 1-5"
-          ]
-        }
-      ],
-      "runs": [
-        {
-          "id": 30069512161,
-          "workflowId": 307790619,
-          "workflow": "รายงานการลารายวัน (LINE)",
-          "title": "รายงานการลารายวัน (LINE)",
-          "status": "completed",
-          "conclusion": "failure",
-          "event": "schedule",
-          "startedAt": "2026-07-24T05:28:15Z",
-          "finishedAt": "2026-07-24T05:30:05Z",
-          "durationSec": 110,
-          "attempt": 1,
-          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/30069512161",
-          "failed": [
-            {
-              "job": "report",
-              "step": "Run daily leave report",
-              "conclusion": "failure"
-            }
-          ]
-        },
-        {
-          "id": 29982430993,
-          "workflowId": 307790619,
-          "workflow": "รายงานการลารายวัน (LINE)",
-          "title": "รายงานการลารายวัน (LINE)",
-          "status": "completed",
-          "conclusion": "failure",
-          "event": "schedule",
-          "startedAt": "2026-07-23T05:32:32Z",
-          "finishedAt": "2026-07-23T05:33:57Z",
-          "durationSec": 85,
-          "attempt": 1,
-          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29982430993",
-          "failed": [
-            {
-              "job": "report",
-              "step": "Run daily leave report",
-              "conclusion": "failure"
-            }
-          ]
-        },
-        {
-          "id": 29893823948,
-          "workflowId": 307790619,
-          "workflow": "รายงานการลารายวัน (LINE)",
-          "title": "รายงานการลารายวัน (LINE)",
-          "status": "completed",
-          "conclusion": "failure",
-          "event": "schedule",
-          "startedAt": "2026-07-22T05:27:23Z",
-          "finishedAt": "2026-07-22T05:28:59Z",
-          "durationSec": 96,
-          "attempt": 1,
-          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29893823948",
-          "failed": [
-            {
-              "job": "report",
-              "step": "Run daily leave report",
-              "conclusion": "failure"
-            }
-          ]
-        },
-        {
-          "id": 29804087991,
-          "workflowId": 307790619,
-          "workflow": "รายงานการลารายวัน (LINE)",
-          "title": "รายงานการลารายวัน (LINE)",
-          "status": "completed",
-          "conclusion": "failure",
-          "event": "schedule",
-          "startedAt": "2026-07-21T05:28:23Z",
-          "finishedAt": "2026-07-21T05:29:49Z",
-          "durationSec": 86,
-          "attempt": 1,
-          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29804087991",
-          "failed": [
-            {
-              "job": "report",
-              "step": "Run daily leave report",
-              "conclusion": "failure"
-            }
-          ]
-        },
-        {
-          "id": 29719958304,
-          "workflowId": 307790619,
-          "workflow": "รายงานการลารายวัน (LINE)",
-          "title": "รายงานการลารายวัน (LINE)",
-          "status": "completed",
-          "conclusion": "failure",
-          "event": "schedule",
-          "startedAt": "2026-07-20T05:47:29Z",
-          "finishedAt": "2026-07-20T05:49:02Z",
-          "durationSec": 93,
-          "attempt": 1,
-          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29719958304",
-          "failed": [
-            {
-              "job": "report",
-              "step": "Run daily leave report",
-              "conclusion": "failure"
-            }
-          ]
-        },
-        {
-          "id": 29557080140,
-          "workflowId": 307790619,
-          "workflow": "รายงานการลารายวัน (LINE)",
-          "title": "รายงานการลารายวัน (LINE)",
-          "status": "completed",
-          "conclusion": "failure",
-          "event": "schedule",
-          "startedAt": "2026-07-17T05:20:49Z",
-          "finishedAt": "2026-07-17T05:22:25Z",
-          "durationSec": 96,
-          "attempt": 1,
-          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29557080140",
-          "failed": [
-            {
-              "job": "report",
-              "step": "Run daily leave report",
-              "conclusion": "failure"
-            }
-          ]
-        },
-        {
-          "id": 29473512314,
-          "workflowId": 307790619,
-          "workflow": "รายงานการลารายวัน (LINE)",
-          "title": "รายงานการลารายวัน (LINE)",
-          "status": "completed",
-          "conclusion": "failure",
-          "event": "schedule",
-          "startedAt": "2026-07-16T05:17:38Z",
-          "finishedAt": "2026-07-16T05:19:00Z",
-          "durationSec": 82,
-          "attempt": 1,
-          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29473512314",
-          "failed": []
-        },
-        {
-          "id": 29390685699,
-          "workflowId": 307790619,
-          "workflow": "รายงานการลารายวัน (LINE)",
-          "title": "รายงานการลารายวัน (LINE)",
-          "status": "completed",
-          "conclusion": "failure",
-          "event": "schedule",
-          "startedAt": "2026-07-15T05:08:25Z",
-          "finishedAt": "2026-07-15T05:09:50Z",
-          "durationSec": 85,
-          "attempt": 1,
-          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29390685699",
-          "failed": []
-        },
-        {
-          "id": 29307725195,
-          "workflowId": 307790619,
-          "workflow": "รายงานการลารายวัน (LINE)",
-          "title": "รายงานการลารายวัน (LINE)",
-          "status": "completed",
-          "conclusion": "failure",
-          "event": "schedule",
-          "startedAt": "2026-07-14T05:08:05Z",
-          "finishedAt": "2026-07-14T05:09:32Z",
-          "durationSec": 87,
-          "attempt": 1,
-          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29307725195",
-          "failed": []
-        },
-        {
-          "id": 29227160774,
-          "workflowId": 307790619,
-          "workflow": "รายงานการลารายวัน (LINE)",
-          "title": "รายงานการลารายวัน (LINE)",
-          "status": "completed",
-          "conclusion": "failure",
-          "event": "schedule",
-          "startedAt": "2026-07-13T05:46:55Z",
-          "finishedAt": "2026-07-13T05:48:23Z",
-          "durationSec": 88,
-          "attempt": 1,
-          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29227160774",
-          "failed": []
-        },
-        {
-          "id": 29073253551,
-          "workflowId": 307790619,
-          "workflow": "รายงานการลารายวัน (LINE)",
-          "title": "รายงานการลารายวัน (LINE)",
-          "status": "completed",
-          "conclusion": "failure",
-          "event": "schedule",
-          "startedAt": "2026-07-10T06:13:03Z",
-          "finishedAt": "2026-07-10T06:14:25Z",
-          "durationSec": 82,
-          "attempt": 1,
-          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/29073253551",
-          "failed": []
-        },
-        {
-          "id": 28998122061,
-          "workflowId": 307790619,
-          "workflow": "รายงานการลารายวัน (LINE)",
-          "title": "รายงานการลารายวัน (LINE)",
-          "status": "completed",
-          "conclusion": "success",
-          "event": "schedule",
-          "startedAt": "2026-07-09T06:13:28Z",
-          "finishedAt": "2026-07-09T06:14:52Z",
-          "durationSec": 84,
-          "attempt": 1,
-          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/28998122061",
-          "failed": []
-        },
-        {
-          "id": 28919859011,
-          "workflowId": 307790619,
-          "workflow": "รายงานการลารายวัน (LINE)",
-          "title": "รายงานการลารายวัน (LINE)",
-          "status": "completed",
-          "conclusion": "success",
-          "event": "schedule",
-          "startedAt": "2026-07-08T05:29:19Z",
-          "finishedAt": "2026-07-08T05:30:47Z",
-          "durationSec": 88,
-          "attempt": 1,
-          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/28919859011",
-          "failed": []
-        },
-        {
-          "id": 28845810759,
-          "workflowId": 307790619,
-          "workflow": "รายงานการลารายวัน (LINE)",
-          "title": "รายงานการลารายวัน (LINE)",
-          "status": "completed",
-          "conclusion": "success",
-          "event": "schedule",
-          "startedAt": "2026-07-07T06:16:53Z",
-          "finishedAt": "2026-07-07T06:18:37Z",
-          "durationSec": 104,
-          "attempt": 1,
-          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/28845810759",
-          "failed": []
-        },
-        {
-          "id": 28771602474,
-          "workflowId": 307790619,
-          "workflow": "รายงานการลารายวัน (LINE)",
-          "title": "รายงานการลารายวัน (LINE)",
-          "status": "completed",
-          "conclusion": "success",
-          "event": "workflow_dispatch",
-          "startedAt": "2026-07-06T06:11:40Z",
-          "finishedAt": "2026-07-06T06:13:13Z",
-          "durationSec": 93,
-          "attempt": 1,
-          "url": "https://github.com/klekmoonwork-droid/daily-leave-report/actions/runs/28771602474",
-          "failed": []
-        }
-      ],
-      "error": null
-    },
-    {
-      "id": "oat",
-      "name": "โอ๊ต",
-      "role": "ตรวจสอบภายใน (Audit)",
+      "id": "audit",
+      "name": "ตรวจสอบภายใน",
+      "role": "Audit Morning Brief และ Audit Reconcile",
       "repo": "chtm-audit-line-bot",
       "seat": 5,
       "look": {
         "skin": "#d99b6c",
         "hair": "#161616",
         "hairStyle": "short",
-        "shirt": "#ab47bc",
-        "accent": "#ffffff"
+        "shirt": "#ab47bc"
       },
       "repoUrl": "https://github.com/klekmoonwork-droid/chtm-audit-line-bot",
       "workflows": [

@@ -3,52 +3,44 @@
   "roomTitle": "ห้องฝ่ายบุคคล",
   "bots": [
     {
-      "id": "poy",
-      "name": "ปอย",
-      "role": "ดูแลพนักงานทดลองงาน",
+      "id": "probation-due",
+      "name": "ทดลองงานครบกำหนด",
+      "role": "รายงานพนักงานที่ครบกำหนดทดลองงาน ส่งเข้า LINE",
       "repo": "probation-report",
       "seat": 0,
-      "look": { "skin": "#f2c9a0", "hair": "#2f1c12", "hairStyle": "long", "shirt": "#7c4dff", "accent": "#ffffff" }
+      "look": { "skin": "#f2c9a0", "hair": "#2f1c12", "hairStyle": "long", "shirt": "#7c4dff" }
     },
     {
-      "id": "pin",
-      "name": "ปิ่น",
-      "role": "แจ้งเตือนครบกำหนดทดลองงาน",
+      "id": "probation-alert",
+      "name": "แจ้งเตือนทดลองงาน",
+      "role": "แจ้งเตือนพนักงานที่ใกล้ครบกำหนดทดลองงาน",
       "repo": "probation-notifier",
       "seat": 1,
-      "look": { "skin": "#e8b487", "hair": "#4a2c17", "hairStyle": "bun", "shirt": "#26c6da", "accent": "#ffffff" }
+      "look": { "skin": "#e8b487", "hair": "#4a2c17", "hairStyle": "bun", "shirt": "#26c6da" }
     },
     {
-      "id": "nan",
-      "name": "แนน",
-      "role": "เวลาเข้างาน / พนักงานลาออกตกหล่น",
+      "id": "attendance",
+      "name": "มาสาย·ลาออกตกหล่น",
+      "role": "รายงานมาสายรายเดือน และแจ้งเตือนพนักงานลาออกที่ตกหล่น",
       "repo": "attendance-checker",
       "seat": 2,
-      "look": { "skin": "#f7d3ae", "hair": "#1b1b1b", "hairStyle": "bob", "shirt": "#ff7043", "accent": "#ffffff" }
+      "look": { "skin": "#f7d3ae", "hair": "#1b1b1b", "hairStyle": "bob", "shirt": "#ff7043" }
     },
     {
-      "id": "tar",
-      "name": "ต้าร์",
-      "role": "สัญญาจ้างครบกำหนด",
+      "id": "contract",
+      "name": "สัญญาจ้างครบกำหนด",
+      "role": "แจ้งเตือนสัญญาจ้างที่ครบกำหนด",
       "repo": "contract-expiry-report",
       "seat": 3,
-      "look": { "skin": "#e0a877", "hair": "#241610", "hairStyle": "short", "shirt": "#42a5f5", "accent": "#ffffff" }
+      "look": { "skin": "#e0a877", "hair": "#241610", "hairStyle": "short", "shirt": "#42a5f5" }
     },
     {
-      "id": "toey",
-      "name": "ใบเตย",
-      "role": "รายงานการลารายวัน",
-      "repo": "daily-leave-report",
-      "seat": 4,
-      "look": { "skin": "#f2c9a0", "hair": "#3d2214", "hairStyle": "ponytail", "shirt": "#66bb6a", "accent": "#ffffff" }
-    },
-    {
-      "id": "oat",
-      "name": "โอ๊ต",
-      "role": "ตรวจสอบภายใน (Audit)",
+      "id": "audit",
+      "name": "ตรวจสอบภายใน",
+      "role": "Audit Morning Brief และ Audit Reconcile",
       "repo": "chtm-audit-line-bot",
       "seat": 5,
-      "look": { "skin": "#d99b6c", "hair": "#161616", "hairStyle": "short", "shirt": "#ab47bc", "accent": "#ffffff" }
+      "look": { "skin": "#d99b6c", "hair": "#161616", "hairStyle": "short", "shirt": "#ab47bc" }
     }
   ]
 }

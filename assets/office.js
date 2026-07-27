@@ -21,6 +21,40 @@ const STATE = {
   error:   { color: '#ff5d5d', label: 'อ่านข้อมูลไม่ได้' },
 };
 
+/* อารมณ์ของตัวละคร — คือสิ่งที่คนดูเห็นจริง ๆ ในห้อง
+   help = ยกมือขอความช่วยเหลือ / mail = ส่งงานแล้วรอเปิดอ่าน
+   rest = เปิดอ่านแล้ว กลับบ้านไปก่อน / busy = กำลังทำอยู่ / wait = ยังไม่ถึงรอบแรก */
+const MOOD = {
+  help: { icon: 'hand',  color: '#ff5d5d', label: 'ยกมือขอความช่วยเหลือ' },
+  busy: { icon: 'dots',  color: '#4ea8ff', label: 'กำลังทำงานอยู่' },
+  mail: { icon: 'mail',  color: '#3ddc84', label: 'ส่งงานแล้ว รอเปิดอ่าน' },
+  rest: { icon: 'zzz',   color: '#6f788f', label: 'อ่านแล้ว — กลับบ้านไปก่อน' },
+  wait: { icon: 'clock', color: '#9aa3bb', label: 'ยังไม่ถึงรอบแรก' },
+};
+
+/* จำว่าเปิดอ่านงานชิ้นไหนไปแล้ว — ผูกกับ run id ล่าสุด พอมี run ใหม่ จดหมายก็เด้งกลับมา */
+const READ_KEY = 'hr-office:read';
+
+function readMap() {
+  try { return JSON.parse(localStorage.getItem(READ_KEY)) || {}; } catch { return {}; }
+}
+function isRead(bot) {
+  return Boolean(bot.lastRun) && readMap()[bot.id] === bot.lastRun.id;
+}
+function markRead(bot) {
+  if (!bot.lastRun) return;
+  const m = readMap();
+  m[bot.id] = bot.lastRun.id;
+  try { localStorage.setItem(READ_KEY, JSON.stringify(m)); } catch { /* โหมดส่วนตัวเขียนไม่ได้ ไม่เป็นไร */ }
+}
+
+function moodOf(bot) {
+  if (['fail', 'error', 'late', 'off'].includes(bot.tone)) return 'help';
+  if (bot.tone === 'running') return 'busy';
+  if (bot.tone === 'never') return 'wait';
+  return isRead(bot) ? 'rest' : 'mail';
+}
+
 /* ============================ cron ============================ */
 
 function parseField(field, min, max) {
@@ -161,6 +195,13 @@ const fmtFull = new Intl.DateTimeFormat('th-TH', {
 function thaiDate(iso) {
   if (!iso) return '—';
   return fmtFull.format(new Date(iso)) + ' น.';
+}
+
+const fmtShort = new Intl.DateTimeFormat('th-TH', { timeZone: TZ, day: 'numeric', month: 'short' });
+
+/** "1 ส.ค." — ไว้ใช้กับป้าย "กลับมาอีกทีวันที่ …" */
+function thaiShort(d) {
+  return d ? fmtShort.format(d instanceof Date ? d : new Date(d)) : '—';
 }
 
 function relative(iso, now = Date.now()) {
@@ -438,6 +479,55 @@ function drawPerson(cx, topY, look, bob) {
   if (hairStyle === 'ponytail') { px(x + 15, y + 4, 4, 17, hair); }
 }
 
+/** ฟองคำพูดเหนือโต๊ะ บอกว่าตอนนี้คนนี้กำลังสื่ออะไร */
+function drawBubble(x, y, icon, color, frame) {
+  const W = 26, H = 20;
+  px(x + 2, y, W - 4, H, '#f7f4ec');            // ตัวฟอง
+  px(x, y + 2, W, H - 4, '#f7f4ec');
+  px(x + 2, y - 1, W - 4, 1, '#c9c2b2');
+  px(x + 2, y + H, W - 4, 1, '#c9c2b2');
+  px(x - 1, y + 4, 1, H - 8, '#c9c2b2');
+  px(x + W, y + 4, 1, H - 8, '#c9c2b2');
+  px(x + 3, y + H, 4, 3, '#f7f4ec');            // หางฟองชี้ลงหาหัว
+  px(x + 3, y + H + 3, 2, 2, '#f7f4ec');
+  px(x + 2, y + H + 2, 1, 3, '#c9c2b2');
+
+  const ix = x + 6, iy = y + 5;                 // พื้นที่ไอคอน 14x10
+
+  if (icon === 'mail') {                        // ซองจดหมาย = ส่งงานแล้ว
+    px(ix, iy, 14, 10, color);
+    px(ix + 1, iy + 1, 12, 8, '#ffffff');
+    px(ix + 1, iy + 1, 12, 1, color);
+    for (let i = 0; i < 6; i++) {               // ฝาซองเป็นเส้นทแยงสองข้าง
+      px(ix + 1 + i, iy + 2 + i, 1, 1, color);
+      px(ix + 12 - i, iy + 2 + i, 1, 1, color);
+    }
+  } else if (icon === 'hand') {                 // ยกมือ = ขอความช่วยเหลือ
+    px(ix + 4, iy, 2, 5, color);                // นิ้ว
+    px(ix + 7, iy + 1, 2, 4, color);
+    px(ix + 1, iy + 1, 2, 4, color);
+    px(ix + 10, iy + 3, 2, 3, color);           // นิ้วโป้ง
+    px(ix + 1, iy + 5, 11, 5, color);           // ฝ่ามือ
+    px(ix + 3, iy + 6, 2, 2, '#ffffff44');
+  } else if (icon === 'zzz') {                  // Zzz = หยุดพัก
+    for (const [zx, zy, s] of [[ix + 1, iy + 4, 5], [ix + 7, iy + 1, 4], [ix + 11, iy, 3]]) {
+      px(zx, zy, s, 1, color);
+      px(zx, zy + s - 1, s, 1, color);
+      for (let i = 0; i < s - 2; i++) px(zx + s - 2 - i, zy + 1 + i, 1, 1, color);
+    }
+  } else if (icon === 'clock') {                // นาฬิกา = รอรอบแรก
+    px(ix + 2, iy, 10, 10, color);
+    px(ix + 3, iy + 1, 8, 8, '#ffffff');
+    px(ix + 6, iy + 2, 1, 4, color);
+    px(ix + 6, iy + 5, 4, 1, color);
+  } else if (icon === 'dots') {                 // จุดวิ่ง = กำลังทำงาน
+    for (let i = 0; i < 3; i++) {
+      const up = Math.sin(frame / 6 - i * 0.9) > 0.2 ? -1 : 0;
+      px(ix + 1 + i * 5, iy + 4 + up, 3, 3, color);
+    }
+  }
+}
+
 /** โต๊ะทำงาน วาดทับตัวละครให้ดูเหมือนนั่งอยู่ */
 function drawDesk(cx, topY, screenColor) {
   const L = cx - 32, W = 64;
@@ -488,13 +578,22 @@ function drawRoom() {
   drawPlant(144, 146);     // ต้นไม้กลางห้อง วางเยื้องจากป้ายชื่อ
   drawPlant(274, 146);
 
-  bots.forEach((bot, i) => {
-    const seat = SEATS[bot.seat ?? i];
-    if (!seat) return;
-    const tone = STATE[bot.tone] || STATE.never;
-    const bob = bot.tone === 'running' ? Math.round(Math.sin(frame / 9 + i) * 1.5) : Math.round(Math.sin(frame / 26 + i * 1.7));
+  SEATS.forEach((seat, si) => {
+    const bot = bots.find((b) => b.seat === si);
+    if (!bot) {                                   // โต๊ะว่าง — ไม่มีคนนั่ง จอดับ
+      drawDesk(seat.x, seat.y, '#1b1f2a');
+      return;
+    }
+    const mood = MOOD[moodOf(bot)];
+    const bob = bot.tone === 'running'
+      ? Math.round(Math.sin(frame / 9 + si) * 1.5)
+      : Math.round(Math.sin(frame / 26 + si * 1.7));
+
+    if (moodOf(bot) === 'rest') ctx.globalAlpha = 0.4;   // อ่านแล้ว = กลับบ้าน เลยจาง ๆ
     drawPerson(seat.x, seat.y - 30, bot.look, bob);
-    drawDesk(seat.x, seat.y, tone.color);
+    ctx.globalAlpha = 1;
+    drawDesk(seat.x, seat.y, (STATE[bot.tone] || STATE.never).color);
+    drawBubble(seat.x + 18, seat.y - 32, mood.icon, mood.color, frame);
   });
 }
 
@@ -509,27 +608,48 @@ function loop() {
 const overlay = document.getElementById('overlay');
 
 function buildSeats() {
-  for (const btn of seatButtons.values()) btn.remove();
+  overlay.querySelectorAll('.seat').forEach((el) => el.remove());  // รวมป้ายโต๊ะว่างด้วย
   seatButtons.clear();
 
-  bots.forEach((bot, i) => {
-    const seat = SEATS[bot.seat ?? i];
-    if (!seat) return;
-    const tone = STATE[bot.tone] || STATE.never;
+  SEATS.forEach((seat, si) => {
+    const bot = bots.find((b) => b.seat === si);
+    const left = `${(seat.x / ROOM_W) * 100}%`;
+    const top = `${((seat.y - 52) / ROOM_H) * 100}%`;
 
+    if (!bot) {                                   // ป้าย "โต๊ะว่าง" กดไม่ได้
+      const empty = document.createElement('div');
+      empty.className = 'seat seat-empty';
+      empty.style.left = left;
+      empty.style.top = top;
+      empty.innerHTML = '<span class="tag">โต๊ะว่าง</span>';
+      overlay.appendChild(empty);
+      return;
+    }
+
+    const mood = MOOD[moodOf(bot)];
     const btn = document.createElement('button');
     btn.className = 'seat';
     btn.dataset.state = bot.tone;
-    btn.style.left = `${(seat.x / ROOM_W) * 100}%`;
-    btn.style.top = `${((seat.y - 45) / ROOM_H) * 100}%`;
-    btn.title = `${bot.name} — ${tone.label}`;
+    btn.dataset.mood = moodOf(bot);
+    btn.style.left = left;
+    btn.style.top = top;
+    btn.title = `${bot.name} — ${mood.label}`;
     btn.innerHTML = `
-      <span class="tag"><span class="dot" style="background:${tone.color}"></span>${bot.name}</span>
+      <span class="tag"><span class="dot" style="background:${mood.color}"></span>${esc(bot.name)}</span>
+      <span class="sub-tag" style="color:${mood.color}">${esc(subTag(bot, mood))}</span>
       <span class="hitbox"></span>`;
     btn.addEventListener('click', () => openPanel(bot.id));
     overlay.appendChild(btn);
     seatButtons.set(bot.id, btn);
   });
+}
+
+/** ข้อความบรรทัดเล็กใต้ชื่องาน */
+function subTag(bot, mood) {
+  if (moodOf(bot) === 'rest') {
+    return bot.upcoming ? `กลับมา ${thaiShort(bot.upcoming.next)}` : 'ไม่มีรอบถัดไป';
+  }
+  return mood.label;
 }
 
 /* ============================ panel ============================ */
@@ -608,7 +728,7 @@ function troubleBlock(bot) {
 function openPanel(id) {
   const bot = bots.find((b) => b.id === id);
   if (!bot) return;
-  const tone = STATE[bot.tone] || STATE.never;
+  markRead(bot);            // เปิดอ่าน = รับงานแล้ว ต้องทำก่อนคิด mood ป้ายจะได้ตรง
   const last = bot.lastRun;
 
   const facts = `
@@ -644,14 +764,22 @@ function openPanel(id) {
     ? `<div class="runs">${bot.runs.map(runRow).join('')}</div>`
     : '<p class="empty">ยังไม่เคยรันเลยสักครั้ง</p>';
 
+  const mood = MOOD[moodOf(bot)];
+  const restNote = moodOf(bot) === 'rest'
+    ? `<div class="rest-note">อ่านงานชิ้นนี้แล้ว — หยุดพักก่อน ${bot.upcoming
+        ? `เดี๋ยวกลับมาอีกที <b>${esc(thaiDate(bot.upcoming.next.toISOString()))}</b>`
+        : 'ไม่มีรอบอัตโนมัติถัดไป ต้องสั่งรันเอง'}</div>`
+    : '';
+
   panelBody.innerHTML = `
     <div class="who">
       <h2>${esc(bot.name)}</h2>
-      <span class="badge" style="background:${tone.color}22;color:${tone.color}">${esc(tone.label)}</span>
+      <span class="badge" style="background:${mood.color}22;color:${mood.color}">${esc(mood.label)}</span>
     </div>
     <p class="who-role">${esc(bot.role)}</p>
     <p class="who-repo"><a href="${esc(bot.repoUrl)}" target="_blank" rel="noopener">${esc(bot.repo)}</a></p>
     ${troubleBlock(bot)}
+    ${restNote}
     ${facts}
     <div class="sec-title">งานที่รับผิดชอบ</div>
     ${wfList}
@@ -662,6 +790,9 @@ function openPanel(id) {
   panel.hidden = false;
   scrim.hidden = false;
   panel.scrollTop = 0;
+
+  buildSeats();
+  renderChips();
   for (const [bid, b] of seatButtons) b.classList.toggle('is-active', bid === id);
 }
 
@@ -673,12 +804,15 @@ function renderSummary(snapshot) {
   document.getElementById('stamp').textContent =
     `ข้อมูล ณ ${thaiDate(snapshot.generatedAt)} (${relative(snapshot.generatedAt)})`;
 
+  renderChips();
+}
+
+function renderChips() {
   const counts = {};
-  for (const b of bots) counts[b.tone] = (counts[b.tone] || 0) + 1;
-  const order = ['fail', 'late', 'running', 'off', 'never', 'error', 'ok'];
-  document.getElementById('summary-chips').innerHTML = order
+  for (const b of bots) { const m = moodOf(b); counts[m] = (counts[m] || 0) + 1; }
+  document.getElementById('summary-chips').innerHTML = ['help', 'busy', 'mail', 'wait', 'rest']
     .filter((k) => counts[k])
-    .map((k) => `<span class="chip"><span class="dot" style="background:${STATE[k].color}"></span>${STATE[k].label} <b>${counts[k]}</b></span>`)
+    .map((k) => `<span class="chip"><span class="dot" style="background:${MOOD[k].color}"></span>${MOOD[k].label} <b>${counts[k]}</b></span>`)
     .join('');
 }
 
